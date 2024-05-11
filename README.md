@@ -7,43 +7,34 @@ Muhammad Abdullah Adnan. The thesis in pdf is in the root folder [./CPEN499 Jaco
 I encountered some config problem when setting up smoothquant environment.
 Here is how I solve those problems.
 
-CUDA driver 12.3
-https://www.nvidia.com/Download/index.aspx
+[CUDA driver 12.3](https://www.nvidia.com/Download/index.aspx)
 
-CUDA Toolkit 11.6
+[CUDA Toolkit 11.6](https://developer.nvidia.com/cuda-11-6-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)
 Tried 12.3, 11.3, 11.8
 cuda toolkit cannot be easily downgraded. just reinstall the system
-https://developer.nvidia.com/cuda-11-6-0-download-archive?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
 
-Anaconda
-https://www.how2shout.com/how-to/install-anaconda-wsl-windows-10-ubuntu-linux-app.html#:~:text=Open%20the%20browser%20of%20your%20Windows%2010%20or,paste%20the%20link%2C%20for%20example%3A%20wget%20paste-link%20Example%3A
+[Anaconda](https://www.how2shout.com/how-to/install-anaconda-wsl-windows-10-ubuntu-linux-app.html#:~:text=Open%20the%20browser%20of%20your%20Windows%2010%20or,paste%20the%20link%2C%20for%20example%3A%20wget%20paste-link%20Example%3A)
 
-Clone Smoothquant
-https://github.com/mit-han-lab/smoothquant.git
+Clone [Smoothquant](https://github.com/mit-han-lab/smoothquant.git)
 
-Install smoothquant following the readme
+Install smoothquant following the [readme](./smoothquant/README.md)
 
 Use pytorch 1.2.1 and cuda 11.6
-Install torch-int following the readme
-https://github.com/Guangxuan-Xiao/torch-int
+Install [torch-int](https://github.com/Guangxuan-Xiao/torch-int) following the readme
 
-Install cutlass check out to feature/2.10
-https://github.com/NVIDIA/cutlass/tree/c975e2ccbb2dbf13024568b37ffa3498ed0b3aed
+Install [cutlass](https://github.com/NVIDIA/cutlass/tree/c975e2ccbb2dbf13024568b37ffa3498ed0b3aed) check out to feature/2.10
 
-Some issue fixes
-https://github.com/FurryMushroom/Quantization_work_of_DesignOrder/blob/main/Experiments%20on%20Smoothquant.md
+Some issue [fixes](https://github.com/FurryMushroom/Quantization_work_of_DesignOrder/blob/main/Experiments%20on%20Smoothquant.md)
 
 Convert the demo jupyter notebook smoothquant_opt_real_int8_demo.ipynb into python script and then run it in the virtual environment with smoothquant and torch-int installed.
-
 ## How to generate act scales
-https://github.com/mit-han-lab/smoothquant/issues/60
-generate activation scales with lambda dataset
+According to [Issue 60](https://github.com/mit-han-lab/smoothquant/issues/60) in the smoothquant repo, generate activation scales with lambda dataset
 “ dataset = load_dataset(‘lambda’, split = ‘validation[:1000]’) ”
-in smoothquant/callibration.py get_act_scales
+in smoothquant/calibration.py get_act_scales
 
-disable the dataset_path for the generate_act_scales.py and run the default setting
+Disable the dataset_path for the generate_act_scales.py and run the default setting
 
-change the path to the newly generated activation scales in test_quant.py
+Change the path to the newly generated activation scales in test_quant.py
 
 ## Usage
 To run the test, run 
